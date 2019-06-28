@@ -9,7 +9,7 @@ public class DiceRolling {
 		int roll1;
 		int roll2;
 		String again;
-		
+		int rollNum = 1;
 		
 		System.out.println("Welcome to the Grand Circus Casino!");
 		
@@ -17,14 +17,17 @@ public class DiceRolling {
 			System.out.println("How many sides should each die have?");
 			userInput = scnr.nextInt();
 			
+			System.out.println("Roll " + rollNum);
 			System.out.println(roll1 = generateRandomDieRoll(userInput));
 			System.out.println(roll2 = generatorTwo(userInput));
 			
 			craps(roll1, roll2);
 			
+			
 			System.out.println("Roll again? (y/n):");
 			again = scnr.next();
 			again = again.toLowerCase();
+			rollNum++;
 		} while(again.equals("y"));
 		
 		System.out.println("Goodbye");
@@ -33,7 +36,7 @@ public class DiceRolling {
 	
 	private static int generateRandomDieRoll(int num) {
 		Random rand = new Random();
-		num = rand.nextInt(num + 1);
+		num = rand.nextInt(num) + 1;
 		return num;
 	}
 	
